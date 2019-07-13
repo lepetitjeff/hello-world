@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  phpVersion: 7.2
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -24,11 +27,8 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+    rootFolderOrFile: '$(system.defaultWorkingDirectory)'
+    includeRootFolder: false
   
 - task: PublishBuildArtifacts@1    
   displayName: 'Publish Artifact: drop'
