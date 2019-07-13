@@ -6,7 +6,7 @@
 
   <?php
   
-    echossss "Hello World! v2.2";
+    echo "Hello World! v2.2";
 
   ?>
 
